@@ -1,0 +1,155 @@
+/* Impostiamo il background della pagina con l'immagine wall.png */
+body {
+  margin: 10;
+  background: url('img/wall.png') no-repeat center center fixed;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Start e Stop Botton */
+.image-button {
+  width: 120px;           /* Imposta la larghezza del bottone */
+  height: 60px;           /* Imposta l'altezza del bottone */
+  border: none;
+  background-color: transparent; /* Rimuove il colore di sfondo */
+  background-size: contain;  /* La png verrà ridimensionata per riempire il bottone */
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* Bottone Start */
+.start {
+  background-image: url('../img/start.png');
+}
+
+/* Bottone Stop */
+.stop {
+  background-image: url('../img/reset.png');
+}
+
+/* Puoi anche aggiungere uno stato hover per effetto visivo */
+.image-button:hover {
+  opacity: 0.3;
+  transition: opacity 0.3s ease; /* Aggiunge una transizione per l'effetto hover */
+}
+
+/* Il container del gioco ha dimensioni fisse per rispettare le dimensioni originali */
+#gameContainer {
+  position: relative;
+  width: min(800px, 90vw);
+  height: min(600px, 75vh);
+  border: 10px solid #000;
+  overflow: hidden;
+  margin-bottom: 20px; 
+}
+
+/* Lo score viene posizionato in alto a sinistra */
+#scoreDisplay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  z-index: 10;
+  pointer-events: none;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+/* Il canvas occupa il 100% del container */
+canvas {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #000;
+  image-rendering: pixelated;
+  background: #333; /* fallback */
+}
+
+/* Background del canvas per il gioco (dinamico) */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;    /* Dimensione originale */
+  height: 600px;   /* Dimensione originale */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Copre tutto il canvas */
+}
+
+/* Stile dei controlli (pulsanti) */
+#controls {
+  margin: 20px;
+  z-index: 10;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 25px;
+  margin: 0 10px;
+  cursor: pointer;
+  background: hsl(0, 45%, 35%);
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #dd8080;
+}
+
+/* Stile della finestra modale */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenuto della finestra modale */
+.modal-content {
+  background: rgb(228, 223, 223);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Pulsante di chiusura */
+.close {
+  position: absolute;
+  color: #ff0000;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+footer {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background: #222;
+  color: white;
+  position: relative;
+}
+

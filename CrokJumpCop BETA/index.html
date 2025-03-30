@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CorkJumpCop BETA - Un'esperienza di vita in pixel art." />
+  <link rel="icon" href="img/1.png" type="image/png" />
+  <title>Cork JumpCop BETA</title>
+  <!-- Font retrò per lo stile pixel art -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- Link al file CSS esterno -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Stile inline per il background della pagina -->
+  <style>
+ 
+ body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
+  background: url('img/wall.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Permette alla pagina di espandersi */
+  overflow-y: auto; /* Abilita lo scorrimento verticale */
+}
+
+  </style>
+</head>
+<body>
+  <div id="pageWrapper">
+    <header>
+      <!-- Nav dei controlli: Start, Stop e Toggle Audio -->
+        <nav id="controls">
+          <button id="startButton" class="image-button start"></button>
+          <button id="stopButton" class="image-button stop"></button>
+          <button id="toggleMusic">🔊</button>
+          <button id="legendButton">📜</button>
+        </nav>
+    </header>
+    
+    <!-- Elemento audio per la colonna sonora in loop -->
+    <audio id="background-music" src="audio/Dragostea Din Tei.mp3" loop></audio>
+
+    <main>
+      <section id="gameContainer">
+        <div id="scoreDisplay"></div>
+        <canvas id="gameCanvas"></canvas>
+        
+      </section>
+    </main>
+    
+    <!-- Finestra Modale -->
+<div id="legendModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Legenda e Comandi</h2>
+    <p><strong>Benvenuto in Cork JumpCop BETA!</strong></p>
+    <p>Salta gli sbirri e raccogli birra per ottenere la liberà!!!</p>
+    <h3>Comandi di Gioco:</h3>
+    <ul>
+      <li>⏸️ Spazio - Salta!</li>
+      <li>🔽 Freccia Giù - Sobrio! (👮‍♂️)
+      </li>
+      <li>▶️ Freccia Destra - Accelera</li>
+      <li>◀️ Freccia Sinistra - Rallenta</li>
+    </ul>
+  </div>
+</div>
+
+    <footer>
+      <p>© 2025 Crok JumpCop BETA. Tutti i diritti riservati.</p>
+    </footer>
+  </div>
+  
+  <!-- Inclusione del file JavaScript per la logica del gioco e l'audio -->
+  <script src="js/game.js"></script>
+</body>
+</html>
